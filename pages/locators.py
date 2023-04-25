@@ -15,4 +15,6 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/h1')
     PRODUCT_PRICE = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/p[1]')
     PRODUCT_IN_CART_PRICE = (By.XPATH, '//*[@id="messages"]/div[3]/div/p[1]/strong')
-    PRODUCT_IN_CART_NAME = (By.XPATH, '//*[@id="messages"]/div[1]/div')
+    PRODUCT_IN_CART_NAME = (By.XPATH, '//*[@id="messages"]/div[1]/div/strong')
+
+

@@ -19,9 +19,11 @@ class ProductPage(BasePage):
     def should_be_same_product_name(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         product_in_cart_name = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_CART_NAME)
-        assert product_name.text in product_in_cart_name.text, "Product name in cart is incorrect"
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_IN_CART_NAME), "Product in cart name is not presented"
+        assert product_name.text == product_in_cart_name.text, f"Product name in cart is incorrect. Expected: {product_name.text}. Actual: {product_in_cart_name.text}"
 
     def should_be_same_product_price(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
         product_in_cart_price = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_CART_PRICE)
-        assert product_price.text in product_in_cart_price.text, "Product price in cart is incorrect"
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_IN_CART_PRICE), "Product in cart price is not presented"
+        assert product_price.text == product_in_cart_price.text, f"Product price in cart is incorrect. Expected: {product_price.text}. Actual: {product_in_cart_price.text}"
