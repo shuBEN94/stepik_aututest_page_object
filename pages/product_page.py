@@ -27,3 +27,16 @@ class ProductPage(BasePage):
         product_in_cart_price = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_CART_PRICE)
         assert self.is_element_present(*ProductPageLocators.PRODUCT_IN_CART_PRICE), "Product in cart price is not presented"
         assert product_price.text == product_in_cart_price.text, f"Product price in cart is incorrect. Expected: {product_price.text}. Actual: {product_in_cart_price.text}"
+
+    def add_product_in_cart(self):
+        add_to_cart_button = self.browser.find_element(*ProductPageLocators.ADD_TO_CART)
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_CART), "Add to cart button is not presented"
+        add_to_cart_button.click()
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def success_message_should_dissapear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should dissapear"
