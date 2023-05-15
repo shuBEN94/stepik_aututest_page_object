@@ -1,4 +1,3 @@
-import time
 
 from .pages.product_page import ProductPage
 import pytest
@@ -43,7 +42,6 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.add_product_in_cart()
-    time.sleep(1)
     page.success_message_should_dissapear()
 
 def test_guest_should_see_login_link_on_product_page(browser):
